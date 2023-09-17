@@ -21,4 +21,18 @@ public class Book {
     public void setYear(int year) {
         this.year = year;
     }
+    public String toString() {
+        return bookTitle + ", author: " + getAuthor() + ", year: " + year;
+    }
+    public boolean equals(Book book) {
+        if (this.author.equals(book.author)) {
+            return this.bookTitle.equals(book.bookTitle) && this.year == book.year;
+        } else {
+            return false;
+        }
+    }
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(bookTitle);
+    }
 }

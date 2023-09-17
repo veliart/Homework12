@@ -7,5 +7,7 @@ public class Main {
         Book colobok = new Book("Colobok", marks, 1873);
         Book harryPotter = new Book("Harry Potter", engels, 2001);
         colobok.setYear(2023);
+        System.out.println(colobok);
+        System.out.println(engels);
     }
 }
