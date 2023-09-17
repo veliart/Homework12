@@ -1,5 +1,7 @@
 package Homework12;
 
+import java.util.Objects;
+
 public class Author {
     private String authorFirstName;
     private String authorLastName;
@@ -16,18 +18,23 @@ public class Author {
     public String getAuthorLastName() {
         return this.authorLastName;
     }
+
+    @Override
     public String toString() {
-        return "First name: " + authorFirstName + ", last name: " + authorLastName;
+        return "Author{" +
+                "authorFirstName='" + authorFirstName + '\'' +
+                ", authorLastName='" + authorLastName + '\'' +
+                '}';
     }
-    public boolean equals(Author author) {
-        if (this.authorFirstName.equals(author.authorFirstName) && this.authorLastName.equals(authorLastName)) {
-            return true;
-        } else {
-            return false;
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Author author = (Author) o;
+        return Objects.equals(getAuthorFirstName(), author.getAuthorFirstName()) && Objects.equals(getAuthorLastName(), author.getAuthorLastName());
     }
     @Override
     public int hashCode() {
-        return java.util.Objects.hash(authorFirstName);
+        return Objects.hash(authorFirstName, authorLastName);
     }
 }
